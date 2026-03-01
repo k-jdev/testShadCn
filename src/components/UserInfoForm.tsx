@@ -20,11 +20,32 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { RiMoreLine } from "@remixicon/react";
+import {
+  RiMoreLine,
+  RiFileLine,
+  RiFolderLine,
+  RiHistoryLine,
+  RiSaveLine,
+  RiShareForwardLine,
+  RiLayoutLeftLine,
+  RiLayoutBottomLine,
+  RiPaletteLine,
+  RiQuestionLine,
+  RiBookOpenLine,
+  RiLogoutBoxLine,
+} from "@remixicon/react";
 
 export function UserInfoForm() {
   return (
@@ -41,10 +62,79 @@ export function UserInfoForm() {
                 <RiMoreLine className="size-5" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Duplicate</DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>File</DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <RiFileLine />
+                  New File
+                  <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <RiFolderLine />
+                  New Folder
+                  <DropdownMenuShortcut>⇧⌘N</DropdownMenuShortcut>
+                </DropdownMenuItem>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>
+                    <RiHistoryLine />
+                    Open Recent
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuItem>Project 1</DropdownMenuItem>
+                    <DropdownMenuItem>Project 2</DropdownMenuItem>
+                    <DropdownMenuItem>Project 3</DropdownMenuItem>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                <DropdownMenuItem>
+                  <RiSaveLine />
+                  Save
+                  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <RiShareForwardLine />
+                  Export
+                  <DropdownMenuShortcut>⇧⌘E</DropdownMenuShortcut>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>View</DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuCheckboxItem checked>
+                  <RiLayoutLeftLine />
+                  Show Sidebar
+                </DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem>
+                  <RiLayoutBottomLine />
+                  Show Status Bar
+                </DropdownMenuCheckboxItem>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>
+                    <RiPaletteLine />
+                    Theme
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuItem>Light</DropdownMenuItem>
+                    <DropdownMenuItem>Dark</DropdownMenuItem>
+                    <DropdownMenuItem>System</DropdownMenuItem>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <RiQuestionLine />
+                Help & Support
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <RiBookOpenLine />
+                Documentation
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem variant="destructive">
+                <RiLogoutBoxLine />
+                Sign Out
+                <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </CardAction>
@@ -66,7 +156,7 @@ export function UserInfoForm() {
               <SelectTrigger id="role" className="w-full">
                 <SelectValue placeholder="Select a role" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent position="popper" side="bottom">
                 <SelectItem value="admin">Admin</SelectItem>
                 <SelectItem value="editor">Editor</SelectItem>
                 <SelectItem value="viewer">Viewer</SelectItem>
@@ -83,11 +173,12 @@ export function UserInfoForm() {
             <SelectTrigger id="framework" className="w-full">
               <SelectValue placeholder="Select a framework" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent position="popper" side="bottom">
               <SelectItem value="next">Next.js</SelectItem>
+              <SelectItem value="sveltekit">SvelteKit</SelectItem>
+              <SelectItem value="nuxt">Nuxt.js</SelectItem>
               <SelectItem value="remix">Remix</SelectItem>
               <SelectItem value="astro">Astro</SelectItem>
-              <SelectItem value="nuxt">Nuxt</SelectItem>
             </SelectContent>
           </Select>
         </div>
