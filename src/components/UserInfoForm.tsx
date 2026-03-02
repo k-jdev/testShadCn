@@ -51,9 +51,7 @@ export function UserInfoForm() {
   return (
     <Card className="w-full max-w-lg">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-          User Information
-        </CardTitle>
+        <CardTitle>User Information</CardTitle>
         <CardDescription>Please fill in your details below</CardDescription>
         <CardAction>
           <DropdownMenu>
